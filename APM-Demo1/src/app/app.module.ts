@@ -19,15 +19,19 @@ import { UserModule } from './user/user.module';
 
 /* NgRx */
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools'
+import { EffectsModule } from '@ngrx/effects'
+
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(ProductData),
+    //HttpClientInMemoryWebApiModule.forRoot(ProductData),
     UserModule,
     AppRoutingModule,
-    StoreModule.forRoot({})
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
     // StoreModule.forRoot({},
     //   {
     //     runtimeChecks: {
@@ -37,6 +41,9 @@ import { StoreModule } from '@ngrx/store';
     //       strictActionSerializability: true
     //     }
     //   })
+    StoreDevtoolsModule.instrument({
+      maxAge: 5
+    })
   ],
   declarations: [
     AppComponent,

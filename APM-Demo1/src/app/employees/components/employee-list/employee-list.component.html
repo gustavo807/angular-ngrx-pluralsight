@@ -1,0 +1,22 @@
+<div class="card">
+    <div class="card-header">
+        Employees
+    </div>
+    <div class="card-body" *ngIf="employees">
+        <div class="list-group">
+            <button class="list-group-item list-group-item-action rounded-0"
+            *ngFor="let employee of employees"
+            >
+            {{ employee.name }}
+            </button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="employees">
+    {{ employees | json}}
+</div>
+
+<div *ngIf="errorMessage" class="alert alert-danger">
+   Error: {{ errorMessage }}
+</div>
