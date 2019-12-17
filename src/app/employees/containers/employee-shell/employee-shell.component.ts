@@ -16,6 +16,7 @@ export class EmployeeShellComponent implements OnInit {
   employees$ : Observable<Employee[]>
   errorMessage$: Observable<string>
   loading$: Observable<boolean>
+  currentEmployee$: Observable<Employee>
 
   constructor(private employeeService : EmployeeService, private store: Store<EmployeeState>) { }
 
@@ -24,7 +25,11 @@ export class EmployeeShellComponent implements OnInit {
     this.employees$ = this.store.pipe(select(fromEmployee.getProducts))
     this.errorMessage$ = this.store.pipe(select(fromEmployee.getError))
     this.loading$ = this.store.pipe(select(fromEmployee.getLoading))
-    //this.employees$ = this.employeeService.getEmployees()
+    this.currentEmployee$ = this.store.pipe(select(fromEmployee.getCurrentEmployee))
+  }
+
+  setCurrentEmployee(employee: Employee){
+    this.store.dispatch(new employeActions.SetCurrentEmployee(employee.id))
   }
 
 }

@@ -17,3 +17,13 @@ export const getError = createSelector(getEmployeeFeatureState,
 
 export const getLoading = createSelector(getEmployeeFeatureState,
     state => state.loading)    
+
+export const getCurrentEmployeeId = createSelector(getEmployeeFeatureState,
+    state => state.currentEmployeeId)    
+
+export const getCurrentEmployee = createSelector(getEmployeeFeatureState, 
+    getCurrentEmployeeId,
+    (state, currentEmployeeId) => {
+        return currentEmployeeId ? state.employees.find(e => e.id === currentEmployeeId) : null
+    }
+)

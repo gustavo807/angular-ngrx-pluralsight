@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Employee } from '../../employee';
 
 @Component({
   selector: 'pm-employee-edit',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class EmployeeEditComponent implements OnInit {
-
+  @Input() currentEmployee: Employee
+  
   constructor() { }
 
   ngOnInit() {

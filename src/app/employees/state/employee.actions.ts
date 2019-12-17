@@ -35,6 +35,8 @@ export class LoadFail implements Action{
 }
 
 export type EmployeeActions = Load
+    | SetCurrentEmployee
+    | ClearCurrentEmployee
     | LoadSuccess
     | LoadFail
     | SetCurrentEmployee

@@ -15,7 +15,7 @@ export class EmployeeService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' })
     return this.http.get<Employee[]>(this.base_url,{headers})
       .pipe(
-        tap(data => console.log(JSON.stringify(data))),
+        //tap(data => console.log(JSON.stringify(data))),
         catchError(this.handleError)
       )
   }

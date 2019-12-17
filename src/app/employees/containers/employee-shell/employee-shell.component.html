@@ -4,9 +4,13 @@
             [employees] = "employees$ | async"
             [errorMessage] = "errorMessage$ | async"
             [loading] = "loading$ | async"
+            [currentEmployee] = "currentEmployee$ | async"
+            (setEmployee) = "setCurrentEmployee($event)"
         ></pm-employee-list>
     </div>
     <div class="col-md-8">
-        <pm-employee-edit></pm-employee-edit>
+        <pm-employee-edit
+            [currentEmployee] = "currentEmployee$ | async"
+        ></pm-employee-edit>
     </div>
 </div>
